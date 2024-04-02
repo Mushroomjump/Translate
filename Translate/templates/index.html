@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation App</title>
+</head>
+<body>
+    <div style="display: flex;">
+        <!-- Original Text Display -->
+        <div style="width: 50%;">
+            <h2>Original Text</h2>
+            <p>{{ original.Content }}</p> <!-- Display the current entry's text -->
+        </div>
+
+        <!-- Translation Submission Form -->
+        <div style="width: 50%;">
+            <h2>Translate Text</h2>
+            <form action="/translate/" method="post">
+                {% csrf_token %}
+                <input type="hidden" id="original_id" name="original_id" value="{{ original.id_str }}">
+                <label for="translation">Translation:</label><br>
+                <textarea id="translation" name="translation" rows="4" cols="50" required></textarea><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <form action="/navigate/" method="post">
+        {% csrf_token %}
+        <button type="submit" name="direction" value="prev">Previous</button>
+        <button type="submit" name="direction" value="next">Next</button>
+    </form>
+</body>
+</html>
