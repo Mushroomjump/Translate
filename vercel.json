@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "Translate/views.py",
+      "src": "Translate/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "views.py"
+      "dest": "wsgi.py"
     }
   ]
 }
