@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "OnePage/src/app.py",
+      "src": "Translate/views.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "app.py"
+      "dest": "views.py"
     }
   ]
 }
